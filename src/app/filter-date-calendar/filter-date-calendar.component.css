@@ -1,0 +1,40 @@
+/* section {
+    padding-top: 20px;
+} */
+#header {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 2px;
+    height: calc(70vh/3);
+    margin: 0 auto;
+    /* min-height: 170px;
+    min-width: 1000px;
+    max-height: 480px;
+    max-width: 1440px; */
+    width: 100%;
+}
+.viewFilghts mat-card{
+    background: #E0E0E0;
+}
+
+.searchCard {
+    background: #3367D6;
+}
+
+.calendar {
+    background: #517EDC;
+    padding: 10px 10px 10px 10px;
+    /* border: black solid 2px; */
+    border-radius: 3px;
+    color: #ffffff;
+    display: block;
+}
+
+.calendar span {
+    padding: 0 60px 0 0;
+}
+
+#calendar-divider {
+    border-left: 1px solid rgba(255,255,255,.3);
+}
