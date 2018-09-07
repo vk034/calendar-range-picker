@@ -1,28 +1,32 @@
-
-<div class="row" style="padding-bottom: 10px">
-   <div class="col-lg-8 offset-lg-4">
-     <div (click)="openCalendar()" class="calendar" #calendar>
-       <i class="fa fa-calendar-o"></i>&nbsp;
-       <span>{{fromDateDisplay}}</span>
-       <span id="calendar-divider"></span>
-       <span style="padding: 0px;">{{toDateDisplay}}</span>
-     </div>
-   </div>
+<div id="date-range-picker">
+  <div class="row" style="padding-bottom: 10px">
+    <div class="col-lg-4">
+      <button mat-button (click)="resetCalendar()">Reset</button>
+    </div>
+    <div class="col-lg-8">
+      <div (click)="openCalendar()" class="calendar" #calendar>
+        <i class="fa fa-calendar-o"></i>&nbsp;
+        <span>{{fromDateDisplay}}</span>
+        <span id="calendar-divider"></span>
+        <span style="padding: 0px;">{{toDateDisplay}}</span>
+      </div>
+    </div>
+ </div>
+ <ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t">
+   </ngb-datepicker>
+   
+ <ng-template #t let-date="date" let-focused="focused">
+   <span class="custom-day"
+         [class.focused]="focused"
+         [class.range]="isRange(date)"
+         [class.faded]="isHovered(date) || isInside(date)"
+         (mouseenter)="hoveredDate = date"
+         (mouseleave)="hoveredDate = null">
+         {{ date.day }}
+   </span>
+ </ng-template>
+ <br>
+ <button mat-raised-button class="btn btn-info pull-right" (click)="dialogClose()">Done</button>
 </div>
-<ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t">
-  </ngb-datepicker>
-  
-<ng-template #t let-date="date" let-focused="focused">
-  <span class="custom-day"
-        [class.focused]="focused"
-        [class.range]="isRange(date)"
-        [class.faded]="isHovered(date) || isInside(date)"
-        (mouseenter)="hoveredDate = date"
-        (mouseleave)="hoveredDate = null">
-        {{ date.day }}
-  </span>
-</ng-template>
-<br>
-<button mat-raised-button class="btn btn-info pull-right" (click)="dialogClose()">Done</button>
   
 <!-- <pre>From: {{ fromDate | json }} To: {{ toDate | json }}</pre> -->

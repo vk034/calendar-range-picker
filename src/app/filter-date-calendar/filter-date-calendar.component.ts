@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
-import { MatDialogConfig, MatDialog } from '@angular/material';
+import { MatDialogConfig, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Overlay } from '@angular/cdk/overlay';
 
 import { AirLines } from '../shared/iAirLines';
 import { AirlineService } from '../shared/airline.service';
@@ -10,7 +11,11 @@ import { DateRangePickerComponent } from './date-range-picker/date-range-picker.
 @Component({
   selector: 'app-filter-date-calendar',
   templateUrl: './filter-date-calendar.component.html',
-  styleUrls: ['./filter-date-calendar.component.css']
+  styleUrls: ['./filter-date-calendar.component.css'],
+  providers: [{
+    provide: MatDialogRef,
+    useValue: {}
+  }]
 })
 export class FilterDateCalendarComponent implements OnInit {
 
@@ -25,7 +30,9 @@ export class FilterDateCalendarComponent implements OnInit {
     private airlineService: AirlineService, 
     private filterDateCalendar: FilterDateCalendarService, 
     private calendar: NgbCalendar,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    public dialogRef: MatDialogRef<DateRangePickerComponent>,
+    private overlay: Overlay
   ) { }
 
   ngOnInit() {
@@ -70,19 +77,38 @@ export class FilterDateCalendarComponent implements OnInit {
 
   openCalendar(){
     const offsetValues = this.calendarRef.nativeElement.getBoundingClientRect();
+    console.log("Offsetvalues : "+JSON.stringify(offsetValues));
     const offsetLeft = ((offsetValues.right - 522) > 0) ? (offsetValues.right - 522) : 0 ;
     const dialogCongfig = new MatDialogConfig();
     dialogCongfig.width = '522px';
+    dialogCongfig.disableClose = false;
+    dialogCongfig.hasBackdrop = false;
+    dialogCongfig.id = "calendarRange";
+    dialogCongfig.panelClass= 'cdk-overlay-container-modified';
     dialogCongfig.data = {
       fromDate: this.dialogFromDate,
       toDate: this.dialogToDate
     };
-    dialogCongfig.hasBackdrop = false;
+    // dialogCongfig.hasBackdrop = false;
+    dialogCongfig.scrollStrategy = this.overlay.scrollStrategies.reposition();
     dialogCongfig.position = {
       // top: offsetValues.top + this.calendarRef.nativeElement.clientHeight + 'px',
       top: offsetValues.top + 'px',
       left: offsetLeft + 'px',
     }
-    const dialogRef = this.dialog.open(DateRangePickerComponent, dialogCongfig);
+    this.dialogRef = this.dialog.open(DateRangePickerComponent, dialogCongfig);
   }
+
+  // dialogClose() {
+  //     this.dialogRef.close();
+  // }
+
+  // @HostListener('document:click', ['$event'])
+  // onCloseClick(event): void {
+  //   console.log('Host');
+  //   if (!event.target.closest('#calendarRange')) {
+  //     this.dialogClose();
+      
+  //   }
+  // }
 }

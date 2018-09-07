@@ -9,8 +9,9 @@ import { MatToolbarModule } from '@angular/material';
 import { InMemoryDataService } from './shared/in-memory-data.service';
 import { RoutingModule } from './routing.module';
 import { AppComponent } from './app.component';
-import { FilterDateModule } from './filter-date/filter-date.module';
 import { FilterDateCalendarModule } from './filter-date-calendar/filter-date-calendar.module';
+
+import { RegisterModule } from './register/register.module';
 
 @NgModule({
   declarations: [
@@ -24,8 +25,9 @@ import { FilterDateCalendarModule } from './filter-date-calendar/filter-date-cal
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
     RoutingModule,
     MatToolbarModule,
-    FilterDateModule,
-    FilterDateCalendarModule
+    FilterDateCalendarModule,
+
+    RegisterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -74,4 +74,11 @@ export class DateRangePickerComponent implements OnInit {
   dialogClose(): void {
     this.dialogRef.close();
   }
+
+  resetCalendar() {
+    this.fromDate = null;
+    this.toDate = null;
+    this.fromDateDisplay = 'From?';
+    this.toDateDisplay = 'To?';
+  }
 }
