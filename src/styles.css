@@ -13,3 +13,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
     border-radius: 5px;
     box-shadow: 0 0 0 0;
   }
+
+  .cdk-overlay-container-modified .transparent-backdrop.in {
+    opacity: 0;
+  }

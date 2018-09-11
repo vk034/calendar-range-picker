@@ -4,7 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { MatToolbarModule } from '@angular/material';
+import { MatToolbarModule, MatMenuModule, MatIconModule, MatCardModule, MatListModule, MatBadgeModule } from '@angular/material';
 
 import { InMemoryDataService } from './shared/in-memory-data.service';
 import { RoutingModule } from './routing.module';
@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { FilterDateCalendarModule } from './filter-date-calendar/filter-date-calendar.module';
 
 import { RegisterModule } from './register/register.module';
+import { NotificationModule } from './notification/notification.module';
 
 @NgModule({
   declarations: [
@@ -25,9 +26,16 @@ import { RegisterModule } from './register/register.module';
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
     RoutingModule,
     MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatCardModule,
+    MatListModule,
+    MatBadgeModule,
     FilterDateCalendarModule,
 
-    RegisterModule
+    RegisterModule,
+
+    NotificationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

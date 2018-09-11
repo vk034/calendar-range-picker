@@ -22,9 +22,6 @@ export class DateRangePickerComponent implements OnInit {
     public dialogRef: MatDialogRef<DateRangePickerComponent>,
     @Inject(MAT_DIALOG_DATA) private defaultValue: any
   ) {
-    // this.fromDate = calendar.getToday();
-    // this.toDate = calendar.getNext(calendar.getToday(), 'd', 3);
-    // console.log('Dialog : '+JSON.stringify(this.defaultValue));
     this.fromDate = this.defaultValue.fromDate;
     this.toDate = this.defaultValue.toDate;
     this.fromDateDisplay = this.fromDate.month+'/'+this.fromDate.day+'/'+this.fromDate.year;
@@ -35,22 +32,16 @@ export class DateRangePickerComponent implements OnInit {
     this.filterDateCalendar.changeFromDate(this.fromDate);
     this.filterDateCalendar.changeToDate(this.toDate);
   }
-
+// Select Dates in Calendar
   onDateSelection(date: NgbDate) {
-    // console.log(date);
     if (!this.fromDate && !this.toDate) {
-      // console.log(`FromD: ${JSON.stringify(date)}`);
-      console.log('if hit');
       this.fromDate = date;
       this.fromDateDisplay = date.month+'/'+date.day+'/'+date.year;
     } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
-      console.log('else if hit');
       this.toDate = date;
       this.toDateDisplay = date.month+'/'+date.day+'/'+date.year;
     } else {
-      console.log('else hit');
       this.toDate = null;
-      // this.toDateDisplay = "To Date?";
       this.toDateDisplay = date.month+'/'+date.day+'/'+date.year;
       this.fromDate = date;
       this.fromDateDisplay = date.month+'/'+date.day+'/'+date.year;
@@ -70,11 +61,11 @@ export class DateRangePickerComponent implements OnInit {
   isRange(date: NgbDate) {
     return date.equals(this.fromDate) || date.equals(this.toDate) || this.isInside(date) || this.isHovered(date);
   }
-
+// Done Button
   dialogClose(): void {
     this.dialogRef.close();
   }
-
+// Reset Button
   resetCalendar() {
     this.fromDate = null;
     this.toDate = null;

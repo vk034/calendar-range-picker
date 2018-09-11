@@ -12,15 +12,12 @@ export class Date{
     this.day = day;
   }
 }
+
 @Injectable({
   providedIn: 'root'
 })
-export class FilterDateCalendarService {
 
-  // private fromDate = new BehaviorSubject<Date>(new Date(2018,9,4));
-  // fromDateObservable = this.fromDate.asObservable();
-  // private toDate = new BehaviorSubject<Date>(new Date(2018,9,7));
-  // toDateObservable = this.toDate.asObservable();
+export class FilterDateCalendarService {
 
   private fromDate: any;
   fromDateObservable: any;
