@@ -1,18 +1,7 @@
 <mat-toolbar class="mat-elevation-z6">
   <div class="container">
     <b style="text-align: center;">{{title | uppercase}}</b>
-    <button mat-button [routerLink]="['/calendar']">Calendar</button>
-    <button mat-button [routerLink]="['/notification']">Notification</button>
-    <button mat-icon-button [matMenuTriggerFor]="menu" class="pull-right">
-      <mat-icon matBadge="5" matBadgeColor="warn">notifications</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <mat-list dense>
-        <mat-list-item> PepperPepperPeSaltSaltSaltSaltSaltSaltSaltSaltSaltpperPepperPepperPepper </mat-list-item>
-        <mat-list-item> Salt </mat-list-item>
-        <mat-list-item> Paprika </mat-list-item>
-      </mat-list>
-    </mat-menu>
+    <!-- <button mat-button [routerLink]="['/calendar']">Calendar</button> -->
   </div>
 </mat-toolbar>
 <router-outlet></router-outlet>

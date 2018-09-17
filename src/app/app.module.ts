@@ -10,9 +10,9 @@ import { InMemoryDataService } from './shared/in-memory-data.service';
 import { RoutingModule } from './routing.module';
 import { AppComponent } from './app.component';
 import { FilterDateCalendarModule } from './filter-date-calendar/filter-date-calendar.module';
+import { CalendarDateFilterModule } from './calendar-date-filter/calendar-date-filter.module';
+import { AirlineDataModule } from './airline-data/airline-data.module';
 
-import { RegisterModule } from './register/register.module';
-import { NotificationModule } from './notification/notification.module';
 
 @NgModule({
   declarations: [
@@ -32,10 +32,8 @@ import { NotificationModule } from './notification/notification.module';
     MatListModule,
     MatBadgeModule,
     FilterDateCalendarModule,
-
-    RegisterModule,
-
-    NotificationModule
+    CalendarDateFilterModule,
+    AirlineDataModule
   ],
   providers: [],
   bootstrap: [AppComponent]

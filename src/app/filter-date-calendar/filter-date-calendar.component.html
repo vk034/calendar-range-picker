@@ -6,12 +6,13 @@
           <mat-card class="searchCard" style="margin-top: 10%;">
             <div class="row">
               <div class="col-lg-4 offset-lg-8">
-                <div (click)="openCalendar()" class="calendar" #calendar>
+                <app-calendar-date-filter></app-calendar-date-filter>
+                <!-- <div (click)="openCalendar()" class="calendar" #calendar>
                   <i class="fa fa-calendar-o"></i>&nbsp;
                   <span>{{_fromDate}}</span>
                   <span id="calendar-divider"></span>
                   <span>{{_toDate}}</span>
-                </div>
+                </div> -->
               </div>
             </div>
           </mat-card>

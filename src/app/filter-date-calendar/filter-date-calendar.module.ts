@@ -5,6 +5,7 @@ import { FilterDateCalendarComponent } from './filter-date-calendar.component';
 import { MatCardModule, MatDialogModule, MatButtonModule } from '@angular/material';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { DateRangePickerComponent } from './date-range-picker/date-range-picker.component';
+import { CalendarDateFilterModule } from '../calendar-date-filter/calendar-date-filter.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DateRangePickerComponent } from './date-range-picker/date-range-picker.
     NgbDatepickerModule,
     MatCardModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    CalendarDateFilterModule
   ],
   exports: [
     NgbDatepickerModule,

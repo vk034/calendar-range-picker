@@ -1,19 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~font-awesome/css/font-awesome.min.css";
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
 
 /* For Dialog */
-.cdk-overlay-container {
-    position: absolute;
-}
-.cdk-overlay-container-modified .mat-dialog-container {
-    /* border: 1px solid #3367d6; */
-    /* padding: 0; */
-    border-radius: 5px;
-    box-shadow: 0 0 0 0;
-  }
+/* .cdk-overlay-container {
+  position: absolute;
+} */
 
-  .cdk-overlay-container-modified .transparent-backdrop.in {
-    opacity: 0;
-  }
+/* .cdk-overlay-container-modified .mat-dialog-container {
+  border-radius: 5px;
+  box-shadow: 0 0 0 0;
+}
+
+.cdk-overlay-container-modified .transparent-backdrop.in {
+  opacity: 0;
+} */
