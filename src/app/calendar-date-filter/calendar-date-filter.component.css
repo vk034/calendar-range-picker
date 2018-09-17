@@ -1,0 +1,15 @@
+.calendar {
+  background: #517EDC;
+  padding: 10px 10px 10px 10px;
+  border-radius: 3px;
+  color: #ffffff;
+  display: block;
+}
+
+.calendar span {
+  padding: 0 60px 0 0;
+}
+
+#calendar-divider {
+  border-left: 1px solid rgba(255, 255, 255, .3);
+}

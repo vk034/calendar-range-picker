@@ -1,0 +1,65 @@
+<section>
+  <div id="header" style="background: url('https://demos.creative-tim.com/paper-kit-2/assets/img/federico-beccari.jpg');">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <mat-card class="searchCard" style="margin-top: 10%;">
+            <div class="row">
+              <!-- <div class="col-lg-4 offset-lg-8">
+                  <app-calendar-date-filter></app-calendar-date-filter>
+                </div> -->
+              <div class="col-lg-6">
+                <app-calendar-date-filter (dateChange)="firstFilterChanged($event)"></app-calendar-date-filter>
+              </div>
+              <div class="col-lg-6">
+                <app-calendar-date-filter (dateChange)="secondFilterChanged($event)"></app-calendar-date-filter>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section style="padding-top: 70px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div *ngFor="let air of airLines_1">
+          <div class="row">
+            <div class="col-lg-12 viewFilghts">
+              <mat-card>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <img src="{{air.logo}}" />
+                    <span>{{air.name}}</span>
+                    <span style="float: right;padding-top: 30px;">{{air.travel_date}}</span>
+                  </div>
+                </div>
+              </mat-card>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div *ngFor="let air of airLines_2">
+          <div class="row">
+            <div class="col-lg-12 viewFilghts">
+              <mat-card>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <img src="{{air.logo}}" />
+                    <span>{{air.name}}</span>
+                    <span style="float: right;padding-top: 30px;">{{air.travel_date}}</span>
+                  </div>
+                </div>
+              </mat-card>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
