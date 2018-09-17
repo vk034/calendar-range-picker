@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '
 import { CalendarDateFilterService } from './calendar-date-filter.service';
 import { CalendarDialogComponent } from './calendar-dialog.component';
 import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material/dialog';
-import { Overlay } from '../../../node_modules/@angular/cdk/overlay';
+import { Overlay } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-calendar-date-filter',
@@ -14,8 +14,7 @@ import { Overlay } from '../../../node_modules/@angular/cdk/overlay';
   },CalendarDateFilterService]
 })
 export class CalendarDateFilterComponent implements OnInit {
-  [x: string]: any;
-
+  
   @ViewChild('calendar') calendarRef: ElementRef;
   @Output() dateChange = new EventEmitter();
   _fromDate: any;
@@ -67,7 +66,6 @@ export class CalendarDateFilterComponent implements OnInit {
     dialogConfig.disableClose = false;
     dialogConfig.hasBackdrop = false;
     dialogConfig.id = this.randomID + 'calendarRange';
-    // dialogConfig.panelClass= 'cdk-overlay-container-modified';
     dialogConfig.scrollStrategy = this.overlay.scrollStrategies.reposition();
     dialogConfig.data = {
       fromDate: this.dialogFromDate,

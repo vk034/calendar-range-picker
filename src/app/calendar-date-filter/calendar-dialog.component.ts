@@ -34,7 +34,6 @@ export class CalendarDialogComponent implements OnInit {
     this.componentService.changeFromDate(this.fromDate);
     this.componentService.changeToDate(this.toDate);
   }
-
   // Select Dates in Calendar
   onDateSelection(date: NgbDate) {
     if (!this.fromDate && !this.toDate) {
@@ -76,14 +75,10 @@ export class CalendarDialogComponent implements OnInit {
     this.toDateDisplay = 'To';
   }
 
-  closeDialog(): void {
-    this.dialogRef.close();
-  }
-
   onOutsideClick(event) {
     const element: Element = document.getElementById(this.dialogId);
     if (!element.contains(event.relatedTarget)) {
-      this.closeDialog();
+      this.dialogClose();
     }
   }
 }
