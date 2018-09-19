@@ -22,6 +22,7 @@ export class AirlineDataComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    
   }
   //First Filter Changed
   firstFilterChanged(event: any){

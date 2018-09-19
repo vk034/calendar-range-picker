@@ -4,6 +4,64 @@
       <button mat-button (click)="resetCalendar()">Reset</button>
     </div>
     <div class="col-lg-8">
+      <div class="calendar" #calendar [formGroup]="dateForm">
+        <i class="fa fa-calendar-o"></i>&nbsp;
+        <span>
+          <!-- {{fromDateDisplay}} -->
+          <mat-form-field style="width: 90px;">
+            <input matInput formControlName="fromDateCtrl" #fromDate (change)="changeFromDateDialog(fromDate.value)">
+            <mat-hint>
+              <span *ngIf="dateInputs.fromDateCtrl.errors">
+                <span *ngIf="dateInputs.fromDateCtrl.errors.pattern">
+                  Invalid Format
+                </span>
+              </span>
+            </mat-hint>
+          </mat-form-field>
+        </span>
+        <span id="calendar-divider"></span>
+        <span style="padding: 0px;">
+          <!-- {{toDateDisplay}} -->
+          <mat-form-field style="width: 90px;">
+            <input matInput formControlName="toDateCtrl" #toDate (change)="changeToDateDialog(toDate.value)">
+            <mat-hint>
+              <span *ngIf="dateInputs.toDateCtrl.errors">
+                <span *ngIf="dateInputs.toDateCtrl.errors.pattern">
+                  Invalid Format
+                </span>
+              </span>
+            </mat-hint>
+          </mat-form-field>
+        </span>
+        <br>
+        <span *ngIf="dateError" style="font-size: 12px; color: red;">{{dateError}}</span>
+      </div>
+      
+    </div>
+  </div>
+  <ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t">
+  </ngb-datepicker>
+
+  <ng-template #t let-date="date" let-focused="focused">
+    <span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)" [class.faded]="isHovered(date) || isInside(date)"
+      (mouseenter)="hoveredDate = date" (mouseleave)="hoveredDate = null">
+      {{ date.day }}
+    </span>
+  </ng-template>
+  <br>
+  <button mat-raised-button class="btn btn-info pull-right" (click)="dialogClose()">Done</button>
+</div>
+
+
+
+
+
+<!-- <div (focusout)="onOutsideClick($event)">
+  <div class="row" style="padding-bottom: 10px">
+    <div class="col-lg-4">
+      <button mat-button (click)="resetCalendar()">Reset</button>
+    </div>
+    <div class="col-lg-8">
       <div (click)="openCalendar()" class="calendar" #calendar>
         <i class="fa fa-calendar-o"></i>&nbsp;
         <span>{{fromDateDisplay}}</span>
@@ -23,4 +81,4 @@
   </ng-template>
   <br>
   <button mat-raised-button class="btn btn-info pull-right" (click)="dialogClose()">Done</button>
-</div>
+</div> -->
